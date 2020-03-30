@@ -37,6 +37,16 @@ function reverseString(str) {
 }
 console.log(reverseString('string'))
 
+//Calculate the nth triangular number. A triangular number counts the objects that can form an equilateral triangle. The nth triangular number is the number of dots composing a triangle with n dots on a side, and is equal to the sum of the n natural numbers from 1 to n. This is the Triangular Number Sequence: 1, 3, 6, 10, 15, 21, 28, 36, 45.
+
+function triangleNum(num) { 
+    if (num === 0) {
+        return 0;
+    }
+    return num + triangleNum(num-1);
+}
+
+console.log(triangleNum(5))
 
 // joses code below
 
@@ -51,7 +61,7 @@ function countSheep(num) {
     return countSheep(num - 1)
 }
 
-countSheep(3);
+// countSheep(3);
 
 // Write a function called powerCalculator() that takes two parameters, an integer as a base, and another integer as an exponent. The function returns the value of the base raised to the power of the exponent. Use only exponents greater than or equal to 0 (positive numbers)
 
@@ -69,7 +79,7 @@ function powerCalculator(base, exp) {
     return base * powerCalculator(base, exp - 1)
 }
 
-console.log(powerCalculator(5, 2))
+// console.log(powerCalculator(5, 2))
 
 function reverseString(str) {
     if(str.length === 0) {
@@ -81,7 +91,7 @@ function reverseString(str) {
     return char + reverseString(str.substring(0, str.length - 1))
 }
 
-console.log(reverseString('shoe'))
+// console.log(reverseString('shoe'))
 
 
 function binary(num) {
@@ -96,4 +106,4 @@ function binary(num) {
     return  binary(Math.floor(num / 2)) + mod
 }
 
-console.log(binary(8))
+// console.log(binary(8))
