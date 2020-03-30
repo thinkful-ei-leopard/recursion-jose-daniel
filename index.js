@@ -27,3 +27,15 @@ function powerCalculator(base, exp) {
 }
 
 console.log(powerCalculator(5, 2))
+
+function reverseString(str) {
+    if(str.length === 0) {
+        return ''
+    }
+
+    const char = str.slice(-1)
+
+    return char + reverseString(str.substring(0, str.length - 1))
+}
+
+console.log(reverseString('shoe'))
