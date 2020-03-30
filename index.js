@@ -27,3 +27,12 @@ function powerCalculator(base, exp) {
 }
 
 console.log(powerCalculator(5, 2))
+
+function reverseString(str) {
+    if(str === '') {
+        return '';
+    }
+    const newChar = str[str.length-1];
+    return newChar + reverseString(str.substring(0, str.length-1));
+}
+console.log(reverseString('string'))
