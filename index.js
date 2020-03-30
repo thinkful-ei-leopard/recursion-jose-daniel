@@ -16,5 +16,14 @@ countSheep(3);
 // powerCalculator(10,-2) should return exponent should be >= 0
 
 function powerCalculator(base, exp) {
-    
+    if(exp < 0) {
+        return console.log('exponent should be >=0')
+    }
+
+    if(exp === 0) {
+        return 1
+    }
+    return base * powerCalculator(base, exp - 1)
 }
+
+console.log(powerCalculator(5, 2))
