@@ -29,6 +29,7 @@ function powerCalculator(base, exp) {
 console.log(powerCalculator(5, 2))
 
 function reverseString(str) {
+<<<<<<< HEAD
     if(str.length === 0) {
         return ''
     }
@@ -39,3 +40,12 @@ function reverseString(str) {
 }
 
 console.log(reverseString('shoe'))
+=======
+    if(str === '') {
+        return '';
+    }
+    const newChar = str[str.length-1];
+    return newChar + reverseString(str.substring(0, str.length-1));
+}
+console.log(reverseString('string'))
+>>>>>>> 162a920c6677ec4d769ef72ed12f1bfecad0fea4
