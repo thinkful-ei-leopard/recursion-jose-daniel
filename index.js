@@ -48,6 +48,26 @@ function triangleNum(num) {
 
 console.log(triangleNum(5))
 
+function splitter(str, separator) {
+    if(str.length === 0) {
+        return '';
+    }
+
+    let index;
+    index = str.indexOf(separator);
+    if (index < 0) {
+        index = str.length;
+    }
+    
+    let newString;
+    
+    newString = str.slice(0, index);
+
+    return [newString, ...splitter(str.substring(index+1, str.length), separator)]
+}
+
+console.log(splitter('02/20/2020', '/'))
+
 // joses code below
 
 
