@@ -8,7 +8,7 @@ function countSheep(num) {
     return countSheep(num - 1)
 }
 
-countSheep(3);
+// countSheep(3);
 
 // Write a function called powerCalculator() that takes two parameters, an integer as a base, and another integer as an exponent. The function returns the value of the base raised to the power of the exponent. Use only exponents greater than or equal to 0 (positive numbers)
 
@@ -87,13 +87,48 @@ function fib(num, sequence=[]) {
 
 console.log(fib(7))
 
-function factorial(num) {
-    if (num === 1) {
-        return 1
+//Write a recursive function that finds the factorial of a given number. The factorial of a number can be found by multiplying that number by each number between itself and 1. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120.
+
+function factorial(num, fact=num) {
+    if (num <= 1) {
+        return fact
     }
-
-
+    fact = fact * (num-1)
+    
+    return factorial(num-1, fact) //recursive
 }
+
+console.log(factorial(5))
+
+// You have entered a Maze and need to find your way out of it. There are more than one possible paths through the Maze to the single exit point. Write a recursive function that will help you find a possible path though the maze.
+
+// You can use the following mazes to test your program.
+
+let mySmallMaze = [
+    [' ', ' ', ' '],
+    [' ', '*', ' '],
+    [' ', ' ', 'e']
+];
+for (let x = 0; x < mySmallMaze.length; x++) {
+    let item = mySmallMaze[x]
+    for (let y = 0; y < item.length; y++) {
+        let node = item[y]
+        console.log(node)
+    }
+    
+}
+
+
+// let maze = [
+//     [' ', ' ', ' ', '*', ' ', ' ', ' '],
+//     ['*', '*', ' ', '*', ' ', '*', ' '],
+//     [' ', ' ', ' ', ' ', ' ', ' ', ' '],
+//     [' ', '*', '*', '*', '*', '*', ' '],
+//     [' ', ' ', ' ', ' ', ' ', ' ', 'e']
+// ];
+// The Maze is represented as a N*M matrix (in the above case, a 3X3 or a 5X7 array). The starting point is the top left corner and the exit is indicated by e. For simplicity purpose, use the bottom right corner of the maze as the exit. You can't go outside the boundaries of the maze. The maze has passages that are blocked and you can't go through them. These blocked passages are indicated by *. Passing through a blocked cell as well as passing though a cell that you have already passed before are forbidden.
+
+// For the above maze, a possible exit path can be RRDDLLDDRRRRRR
 
 // joses code below
 
