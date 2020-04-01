@@ -109,83 +109,75 @@ let mySmallMaze = [
     [' ', '*', ' '],
     [' ', ' ', 'e']
 ];
-for (let x = 0; x < mySmallMaze.length; x++) {
-    let item = mySmallMaze[x]
-    for (let y = 0; y < item.length; y++) {
-        let node = item[y]
-        console.log(node)
+
+let maze = [
+    [' ', ' ', ' ', '*', ' ', ' ', ' '],
+    ['*', '*', ' ', '*', ' ', '*', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', '*', '*', '*', '*', '*', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', 'e']
+];
+
+function findExit(maze, x, y) {
+    if(maze[y][x]==='e') {
+        return console.log('made it')
     }
-    
+    if(maze[y][x+1]===' ') {
+        console.log('r')
+        return findExit(maze, (x+1), y)
+    }
+    else if(maze[y][x+1]==='*' || x+2 > maze[y].length && maze[y+1][x] ===' ' || 'e') {
+        console.log('d')
+        return findExit(maze, x, (y+1))
+    }
+    else if(maze[y][x+1]==='*' && maze[y-1][x]===' ') {
+        console.log('u')
+        return findExit(maze, x, (y-1))
+    }
+    else {
+        return 'oops'
+    }
 }
 
+findExit(maze, 0, 0)
 
-// let maze = [
-//     [' ', ' ', ' ', '*', ' ', ' ', ' '],
-//     ['*', '*', ' ', '*', ' ', '*', ' '],
-//     [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-//     [' ', '*', '*', '*', '*', '*', ' '],
-//     [' ', ' ', ' ', ' ', ' ', ' ', 'e']
-// ];
+// for (let x = 0; x < mySmallMaze.length; x++) {
+//     let item = mySmallMaze[x]
+//     for (let y = 0; y < item.length; y++) {
+//         let node = item[y]
+//         // console.log(node)
+//     }
+    
+//}
+
+
+
 // The Maze is represented as a N*M matrix (in the above case, a 3X3 or a 5X7 array). The starting point is the top left corner and the exit is indicated by e. For simplicity purpose, use the bottom right corner of the maze as the exit. You can't go outside the boundaries of the maze. The maze has passages that are blocked and you can't go through them. These blocked passages are indicated by *. Passing through a blocked cell as well as passing though a cell that you have already passed before are forbidden.
 
 // For the above maze, a possible exit path can be RRDDLLDDRRRRRR
 
-// joses code below
+//An anagram is any word or phrase that uses the letters of a given ("subject") word or phrase in another, rearranged order. Write a function that creates an anagram list, listing all the rearrangements of a given word. For example, if the user types "east", the program should list all 24 permutations, including "eats", "etas", "teas", and non-words like "tsae".
 
+// function anagrams(string, prefix = '') {
+//     if 
+// }
 
-// Write a recursive function that counts how many sheep jump over the fence. Your program should take a number as input. That number should be the number of sheep you have. The function should display the number along with the message "Another sheep jumps over the fence" until no more sheep are left.
+// Tower of Hanoi
 
-function countSheep(num) {
-    if (num === 0) {
-        return console.log('All sheep jumped over the fence')
+let count = 0;
+
+function TOH(n, start, dest, temp) {
+    if (n <= 0) {
+        return
     }
-    console.log(`${num}: Another sheep jumps over the fence`)
-    return countSheep(num - 1)
+    TOH((n-1), start, temp, dest)
+    count ++;
+    print(start, dest, count)
+    TOH((n-1), temp, dest, start)
 }
 
-// countSheep(3);
-
-// Write a function called powerCalculator() that takes two parameters, an integer as a base, and another integer as an exponent. The function returns the value of the base raised to the power of the exponent. Use only exponents greater than or equal to 0 (positive numbers)
-
-// powerCalculator(10,2) should return 100
-// powerCalculator(10,-2) should return exponent should be >= 0
-
-function powerCalculator(base, exp) {
-    if(exp < 0) {
-        return console.log('exponent should be >=0')
-    }
-
-    if(exp === 0) {
-        return 1
-    }
-    return base * powerCalculator(base, exp - 1)
+function print(a, b) {
+    return console.log(`moving ${a} to ${b}. step # ${count}`)
 }
 
-// console.log(powerCalculator(5, 2))
-
-function reverseString(str) {
-    if(str.length === 0) {
-        return ''
-    }
-
-    const char = str.slice(-1)
-
-    return char + reverseString(str.substring(0, str.length - 1))
-}
-
-// console.log(reverseString('shoe'))
-
-
-function binary(num) {
-    if(num === 0) {
-        return ''
-    }
-
-    let mod = `${num % 2}`
-
-
-
-    return  binary(Math.floor(num / 2)) + mod
-}
-
-// console.log(binary(8))
+// TOH(4, 'A', 'C', 'B')
